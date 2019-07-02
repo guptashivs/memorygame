@@ -1,0 +1,137 @@
+/**
+ * ================================
+ * Author: Shivani Gupta
+ * Creation Date: 01-Nov-2018
+ * ================================
+ */
+.ribbon, body .container .game-details {
+  height: 0;
+  border-bottom: 30px solid #FECC40;
+  border-top: 30px solid #FECC40;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.disp-flex {
+  display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+
+.modal .modal-header {
+  background-color: #efecef;
+}
+
+.modal .modal-footer {
+  justify-content: center;
+}
+
+.modal .modal-footer .btn {
+  background-color: #67477C;
+  color: #fff;
+}
+
+body header h1 {
+  color: #67477C;
+  font-family: "Times New Roman", Times, cursive;
+  font-style: oblique;
+  text-align: center;
+}
+
+body .container {
+  width: 100%;
+}
+
+body .container .menu {
+  background-color: #FECC40;
+  height: 200px;
+  padding: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body .container .menu .btn-newgame {
+  background-color: #67477C;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+body .container .menu .player-name {
+  border: none;
+  margin-left: 10px;
+}
+
+body .container .game-details {
+  color: #67477C;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+body .container .game-details .game-data {
+  margin: auto;
+  height: inherit;
+}
+
+body .container .flip-card {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  display: inline-block;
+}
+
+body .container .flip-card > .card-front {
+  position: absolute;
+  transform: perspective(600px) rotateY(0deg);
+  background: #67477C;
+  width: 50px;
+  height: 50px;
+  border-radius: 7px;
+  backface-visibility: hidden;
+  transition: transform .5s linear 0s;
+  background-image: url("../img/question.png");
+  background-size: contain;
+}
+
+body .container .flip-card > .card-back {
+  position: absolute;
+  transform: perspective(600px) rotateY(180deg);
+  background: #67477C;
+  width: 50px;
+  height: 50px;
+  border-radius: 7px;
+  backface-visibility: hidden;
+  transition: transform .5s linear 0s;
+}
+
+body .container .flip-card > .card-front-hover {
+  -webkit-transform: perspective(600px) rotateY(-180deg);
+  transform: perspective(600px) rotateY(-180deg);
+}
+
+body .container .flip-card > .card-back-hover {
+  -webkit-transform: perspective(600px) rotateY(0deg);
+  transform: perspective(600px) rotateY(0deg);
+}
+
+body .container .flip-card > .diamond-card {
+  background-image: url("../img/diamond.png");
+  background-size: contain;
+}

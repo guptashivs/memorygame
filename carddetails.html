@@ -1,0 +1,6 @@
+<div class="row disp-flex" ng-repeat="tile in memorygame.tiles track by $index">
+    <div class="flip-card" ng-repeat="x in tile track by $index" ng-click="memorygame.calculateScore(x);">
+        <div class="card-back" ng-class="{'diamond-card': x.hasDiamond, 'card-back-hover': x.isOpened}"></div>
+        <div class="card-front" ng-class="{'card-front-hover': x.isOpened}"></div>
+    </div>
+</div>

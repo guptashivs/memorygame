@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" ng-app="memoryGameAPP">
+<head>
+    <title>Memory Game</title>
+    <meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
+    <meta name="description" content="Memory game to find hidden diamonds">
+    <meta name="keywords" content="memory game, dimaonds, hidden diamonds">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Plugins required -->
+    <script src="node_modules/angular/angular.js"></script>
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Custom styles for memory game  -->
+    <link rel="stylesheet" href="css/main.min.css" />
+</head>
+<body ng-controller='memoryGameController as memorygame'>
+    <header>
+        <h1>Welcome&nbsp;<strong>{{memorygame.settings.playerName}}&nbsp;</strong>to Memory Game</h1>
+    </header>
+    <section class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row menu">
+                    <div class="col-12 form-group text-center">
+                        <label for="playerName">
+                            Player name:
+                        </label>
+                        <input type="text" id="playerName" class="player-name" ng-model="memorygame.settings.playerName" />
+                    </div>
+                    <div class="col-12 form-group text-center">
+                        <label for="boardSize">
+                            Board size:
+                        </label>
+                        <select ng-model="memorygame.settings.size" ng-options="ts.value as ts.text for ts in memorygame.boardSize" ng-selected="memorygame.settings.size" id="boardSize"></select>
+                    </div>
+                    <div class="col-12 text-center">
+                        <button type="button" ng-click="memorygame.initTiles();" class="btn btn-newgame"> New Game
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 text-center card-board">
+                <div class="row game-details">
+                    <div class="game-data disp-flex">Score: {{memorygame.settings.playerScore}} &nbsp;<img src="../img/diamond.png"height="30" alt="On click of card dimaond will be shown" />&nbsp;Highest Score: {{memorygame.preHighScore}}</div>
+                    </div>
+                    <boardcard memorygame='memorygame'></boardcard>
+                </div>
+            </div>
+    </section>
+    <!-- Confirmation Dialog -->
+<div class="modal" modal="showModal" ng-show="true" id="gameModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+         <h4 class="modal-title">Score: {{memorygame.settings.playerScore}}</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="../img/congrats.gif" width="200px"/>
+      </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="memorygame.initTiles();">Play Again</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Go back</button>
+    </div>
+    </div>
+  </div>
+</div>
+    <script src="/js/main.min.js"></script>
+    <script src="/js/boardcard-directive.min.js"></script>
+    <script src="/js/storageService.min.js"></script>
+</body>
+
+</html>

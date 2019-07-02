@@ -1,0 +1,140 @@
+/**
+ * ================================
+ * Author: Shivani Gupta
+ * Creation Date: 01-Nov-2018
+ * ================================
+ */
+
+//Reusable style block
+$card-height: 50px;
+$card-width: 50px;
+$yellow-color: #FECC40;
+$purple-color: #67477C;
+.ribbon{
+	height:0; 
+	border-bottom:30px solid $yellow-color;
+	border-top:30px solid $yellow-color;
+	border-left:10px solid transparent; 
+	border-right:10px solid transparent; 
+}
+
+//Global style
+html,
+body {
+    height: 100%;
+}
+.disp-flex{
+	display: flex;
+	display: -webkit-box; 
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex; 
+	align-items: center;
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	justify-content: center;
+	-webkit-justify-content: center 
+}
+
+.modal{
+	.modal-header{
+		background-color: #efecef;
+	}
+	.modal-footer{
+		justify-content: center;
+		.btn{
+			background-color: $purple-color;
+			color: #fff;
+		}
+	}
+}
+
+//Page specific style block 
+body {
+    header {
+        h1 {
+            color: $purple-color;
+            font-family: "Times New Roman", Times, cursive;
+            font-style: oblique;
+            text-align: center;
+        }
+    }
+    .container {
+        width: 100%;
+        .menu {
+            background-color: $yellow-color;
+            height: 200px;
+            padding: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .btn-newgame{
+				background-color: $purple-color;
+				color: #fff;
+				font-weight: 500;
+				border-radius: 5px;
+			}
+            .player-name {
+                border: none;
+                margin-left: 10px;
+            }
+        }
+
+        .game-details{
+        	@extend .ribbon;
+			color: $purple-color;
+			font-size: 18px;
+			font-weight: 600;
+			margin-top: 15px;
+			.game-data{
+				margin: auto;
+				height: inherit;
+			}
+        }
+        .flip-card {
+            width: $card-height;
+            height: $card-width;
+            margin: 10px;
+            display: inline-block;
+        }
+
+        .flip-card>.card-front {
+            position: absolute;
+            transform: perspective(600px) rotateY(0deg);
+            background: $purple-color;
+            width: $card-height;
+            height: $card-width;
+            border-radius: 7px;
+            backface-visibility: hidden;
+            transition: transform .5s linear 0s;
+            background-image: url("../img/question.png");
+            background-size: contain;
+        }
+
+        .flip-card>.card-back {
+            position: absolute;
+            transform: perspective(600px) rotateY(180deg);
+            background: $purple-color;
+            width: $card-height;
+            height: $card-width;
+            border-radius: 7px;
+            backface-visibility: hidden;
+            transition: transform .5s linear 0s;
+        }
+        .flip-card> .card-front-hover{
+			-webkit-transform: perspective( 600px ) rotateY( -180deg );
+			transform: perspective( 600px ) rotateY( -180deg );
+		}
+		.flip-card> .card-back-hover{
+			-webkit-transform: perspective( 600px ) rotateY( 0deg );
+			transform: perspective( 600px ) rotateY( 0deg );
+		}
+        .flip-card> .diamond-card{
+        	background-image: url("../img/diamond.png");
+            background-size: contain;
+        }
+    }
+}
