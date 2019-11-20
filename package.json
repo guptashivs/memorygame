@@ -20,7 +20,7 @@
     "devDependencies": {
         "browser-sync": "2.23.6",
         "gulp": "^3.9.1",
-        "angular": "~1.5.2",
+        "angular": "~1.7.9",
  "gulp-clean-css": "3.9.2",
         "gulp-header": "2.0.1",
         "gulp-rename": "^1.2.2",
